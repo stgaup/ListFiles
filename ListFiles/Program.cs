@@ -82,7 +82,11 @@ namespace ListFiles
                     {
                         if(asm.FullName.Contains(version))
                             Console.WriteLine($"{f.LastWriteTime} ## {asm.FullName} ## {f.FullName}");
+                        return;
                     }
+
+                    Console.WriteLine($"{f.LastWriteTime} ## {asm.FullName} ## {f.FullName}");
+
                 }
             }
 
