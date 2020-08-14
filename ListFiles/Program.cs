@@ -9,8 +9,11 @@ namespace ListFiles
     {
         static void Main(string[] args)
         {
-            if(args.Length < 2)
+            if (args.Length < 2)
+            {
                 ShowHelp();
+                return;
+            }
 
             var rootPath = args[0];
             var fileName = args[1];
@@ -92,9 +95,13 @@ namespace ListFiles
 
         static void ShowHelp()
         {
-            Console.WriteLine("ListFiles v. 0.1 - a utility that searches for files by name, listing all found with FullName that contains the PublicKeyToken.");
+            Console.WriteLine("ListFiles v. 0.1");
+            Console.WriteLine("  Utility that searches for files by name, listing all found with FullName that contains the PublicKeyToken and version.");
+            Console.WriteLine("  Also possible to filter on publicKeyToken and/or version.");
             Console.WriteLine("Usage:");
-            Console.WriteLine("  ListFiles [rootDirectory] [assemblyName] [optional: publicKeyToken]");
+            Console.WriteLine("  ListFiles [rootDirectory] [fileName] [-p:publicKeyToken] [-v:version]");
+            Console.WriteLine("Example:");
+            Console.WriteLine("  ListFiles C:\\projects log4net.dll -p:692fbea5521e1304 -v:1.2.10.0");
             Console.WriteLine();
         }
     }
